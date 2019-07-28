@@ -1,28 +1,56 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">  
+      <Search @informationevent="sendinfo($event)" />
+      <Content :info="info" :show="show" v-if="click=true" />
+     
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Search from "./components/Search"
+  import Content from "./components/Content"
+ 
 
 export default {
+  
   name: 'app',
+  data(){
+    return{
+        click : false,
+        name : "",
+        level : "",
+        ico : "", 
+        info : [],
+        show : false,
+
+    }
+  },
   components: {
-    HelloWorld
-  }
+    Search,
+    Content,
+  
+  },
+  methods : {
+     sendinfo(infos){
+        this.info = []
+        this.click=true
+        this.name = infos.name
+        this.level = infos.level
+        this.ico = infos.ico
+        this.info.push(infos)
+        this.show=this.click
+        
+        
+       
+
+     }
+}
 }
 </script>
 
+
+
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
