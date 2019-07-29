@@ -54,21 +54,25 @@ import axios from 'axios'
                 
                 }
             },
+          
             methods : {
                 verial(){
-                   
-                    axios.get("https://"+this.server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+this.name+"?api_key=RGAPI-eb87a204-4de3-4830-addd-547cb7da16f7")
+                     var api ="RGAPI-89a91767-72fc-4abd-ae26-7b1a1620c28d";
+                    axios.get("https://"+this.server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+this.name+"?api_key="+api)
                     .then(response => {
                          
                           let informationpack = {
+                              apikey : api,
                               name : response["data"]["name"],
                               level: response["data"]["summonerLevel"],
                               ico : "http://opgg-static.akamaized.net/images/profile_icons/profileIcon"+response["data"]["profileIconId"]+".jpg" ,
                               id : response.data.id,
+                              accountid : response.data.accountId,
                               server :this.server
 
                           }
                         this.$emit("informationevent", informationpack)
+                        console.log(informationpack.accountid)
 
                     })
                      

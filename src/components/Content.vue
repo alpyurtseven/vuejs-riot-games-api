@@ -2,7 +2,7 @@
 <div class="well" >
  
     <div  class="d-flex flex-row bd-highlight mb-3 " style="background-color:#41B883">
-        <div v-for="item in info" class="p2 bd highlight" >
+        <div v-for="item in info" class="p2 bd highlight mt-2" >
             <div class="card ml-2 " style="width: 15rem; background-color:#35495E;color:white" >
             <img class="card-img-top" v-bind:src="item.ico">
                 <div class="card-body">
@@ -17,7 +17,7 @@
         <Charts class="d-flex flex-row bd-highlight "  :cds="csd" :send="send" v-if="show"/>
        
   </div>
-  <hr>
+
 </div>
     
 </template>
@@ -55,6 +55,7 @@ export default {
                 console.log("değişti")
                 this.send[0]=(this.info[0]["id"])
                 this.send[1]=(this.info[0]["server"]) 
+                this.send[2] =(this.info[0]["apikey"])
 
 
                 

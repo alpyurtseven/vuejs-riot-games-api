@@ -74,10 +74,10 @@ export default {
    watch:{
         tft_rank(value){
             this.addCharts()
-            console.log("Lig Değişti")
+           
         },
         send(value){
-            console.log("değişti")
+           
         }
        
 
@@ -136,7 +136,7 @@ export default {
             },
             verial(){
                    
-                    let url = "https://"+this.send[1]+".api.riotgames.com/lol/league/v4/entries/by-summoner/"+this.send[0]+"?api_key=RGAPI-eb87a204-4de3-4830-addd-547cb7da16f7"
+                    let url = "https://"+this.send[1]+".api.riotgames.com/lol/league/v4/entries/by-summoner/"+this.send[0]+"?api_key="+this.send[2]
                     Axios.get(url).then(response =>{
                         var i;
                         for(i = 0; i<3; i++){
@@ -165,8 +165,8 @@ export default {
                                     this.solo_loses=response["data"][i]["losses"]
                                   
                                 }
-                               console.log(this.src_tft)
                                
+                               console.log(this.send[0])
                         }
                                
                                
