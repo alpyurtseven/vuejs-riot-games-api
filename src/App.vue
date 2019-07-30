@@ -3,7 +3,7 @@
       <Search @informationevent="sendinfo($event)" />
       <Content :info="info" :show="show" v-if="click=true" />
       <div class="d-flex justify-content-end w-100" v-if="click=den">
-         <Match class="w-75 mt-n3" :info="info" :show="show"  />
+         <Match class="w-100 mr-0 mt-n3" :info="info" :show="show"  />
          </div>
      
      
@@ -60,5 +60,7 @@ export default {
 
 
 <style>
-
+body{
+  background-color: #343a40;
+}
 </style>

@@ -57,7 +57,7 @@ import axios from 'axios'
           
             methods : {
                 verial(){
-                     var api ="RGAPI-89a91767-72fc-4abd-ae26-7b1a1620c28d";
+                     var api ="RGAPI-b94a26bb-b3ea-4b90-8dda-94db07eff34a";
                     axios.get("https://"+this.server+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+this.name+"?api_key="+api)
                     .then(response => {
                          
